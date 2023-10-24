@@ -7,6 +7,17 @@ services:
     ports:
       - "5000:5000"
     restart: always
+    networks:
+      - mern-network
+  mongo-db:
+    container_name: mongo_container
+    image: mongo
+    networks:
+      - mern-network
+    ports:
+      - "27017:27017"
 
 
-
+networks:
+  mern-network:
+    driver: bridge

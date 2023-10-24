@@ -1,31 +1,37 @@
 const express = require("express")
-
+const mongoose = require("mongoose")
+const { testModel } = require("./models/TestModel")
 const app = express()
 
 
-app.get("/", (req, res) => {
 
+app.get("/", async (req, res) => {
+    const data = await testModel.find()
     res.send({
-        msg: "selam hoşgeldin"
+        data: data
     })
 })
 
-app.get("/main", (req, res) => {
-    res.send({
-        msg: "mainurl"
-    })
-})
+app.get("/save", async (req, res) => {
+    try {
+        await testModel.create({
+            name: "emre" + Math.random().toString(),
+            age: Math.random.toString()
+        })
+        res.send({
+            msg: "kayıt başarılı"
+        })
+    }
+    catch (err) {
+        res.send({
+            msg: err.message
+        })
+    }
 
-app.get("/naber", (req, res) => {
-
-    res.send("iyidir sahip sen nasılsın")
-})
-
-app.get("/test",(req,res)=>{
-    res.send("selam bebek mugo ben kelebek")
 })
 
 
 app.listen(5000, () => {
+    connectDb()
     console.log("server is running")
 })
