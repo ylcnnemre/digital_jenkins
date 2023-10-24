@@ -4,6 +4,14 @@ const { testModel } = require("./models/TestModel")
 const app = express()
 
 
+const connectDb = () => {
+    mongoose.connect("mongodb://mongo_container/testapp").then(val => {
+        console.log("connection başarılı")
+    }).catch(err => {
+        console.log("bağlantı başarısız")
+    })
+}
+
 
 app.get("/", async (req, res) => {
     const data = await testModel.find()
