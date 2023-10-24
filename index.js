@@ -16,7 +16,12 @@ app.get("/main", (req, res) => {
     })
 })
 
+app.get("/naber", (req, res) => {
 
-app.listen(5000,()=>{
+    res.send("iyidir sahip sen nasılsın")
+})
+
+
+app.listen(5000, () => {
     console.log("server is running")
 })
