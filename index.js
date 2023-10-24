@@ -23,8 +23,8 @@ app.get("/", async (req, res) => {
 app.get("/save", async (req, res) => {
     try {
         await testModel.create({
-            name: "emre" + Math.random().toString(),
-            age: Math.random.toString()
+            name: "emre" + Math.random(0,10).toString(),
+            age: Math.random(0,10).toString()
         })
         res.send({
             msg: "kayıt başarılı"
