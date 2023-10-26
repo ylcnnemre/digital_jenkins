@@ -1,8 +1,8 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const { testModel } = require("./models/TestModel")
-const app = express()
+import express from "express"
+import mongoose from "mongoose"
+import { testModel } from "./models/TestModel"
 
+const app = express()
 
 const connectDb = () => {
     mongoose.connect("mongodb://mongo_container/testapp").then(val => {
@@ -11,6 +11,21 @@ const connectDb = () => {
         console.log("bağlantı başarısız")
     })
 }
+
+app.get("/test",(req,res)=>{
+
+    res.send({
+        msg : "selam tatlım"
+    })
+})
+
+app.get("/mest",(req,res)=>{
+
+    res.send({
+        msg : "yarraaaaa"
+    })
+})
+
 
 
 app.get("/", async (req, res) => {
@@ -23,14 +38,14 @@ app.get("/", async (req, res) => {
 app.get("/save", async (req, res) => {
     try {
         await testModel.create({
-            name: "emre" + Math.random(0,10).toString(),
-            age: Math.random(0,10).toString()
+            name: "emre" + Math.random().toString(),
+            age: Math.random().toString()
         })
         res.send({
             msg: "kayıt başarılı"
         })
     }
-    catch (err) {
+    catch (err:any) {
         res.send({
             msg: err.message
         })

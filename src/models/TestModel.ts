@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 
 
 const Testschema = new mongoose.Schema({
@@ -18,6 +18,6 @@ const Testschema = new mongoose.Schema({
 
 const testModel = mongoose.model("test", Testschema)
 
-module.exports = {
+export {
     testModel
 }
