@@ -12,17 +12,10 @@ const connectDb = () => {
     })
 }
 
-app.get("/test",(req,res)=>{
+app.get("/selam", (req, res) => {
 
     res.send({
-        msg : "selam tatlım"
-    })
-})
-
-app.get("/mest",(req,res)=>{
-
-    res.send({
-        msg : "yarraaaaa"
+        msg: "selam"
     })
 })
 
@@ -45,7 +38,7 @@ app.get("/save", async (req, res) => {
             msg: "kayıt başarılı"
         })
     }
-    catch (err:any) {
+    catch (err: any) {
         res.send({
             msg: err.message
         })
