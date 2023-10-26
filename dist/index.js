@@ -28,6 +28,9 @@ app.get("/selam", (req, res) => {
         msg: "selam"
     });
 });
+app.get("test", (req, res) => {
+    res.send(new Date().toLocaleString());
+});
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield TestModel_1.testModel.find();
     res.send({
