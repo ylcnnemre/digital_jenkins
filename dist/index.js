@@ -23,9 +23,9 @@ const connectDb = () => {
         console.log("bağlantı başarısız");
     });
 };
-app.get("/test", (req, res) => {
+app.get("/selam", (req, res) => {
     res.send({
-        msg: "selam tatlım"
+        msg: "selam"
     });
 });
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
