@@ -29,7 +29,11 @@ app.get("/selam", (req, res) => {
     });
 });
 app.get("/test", (req, res) => {
-    res.send(new Date().toLocaleString());
+    const istanbulTime = new Date().toLocaleString("en-US", {
+        timeZone: "Europe/Istanbul",
+        hour12: false
+    });
+    res.send(istanbulTime);
 });
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield TestModel_1.testModel.find();
